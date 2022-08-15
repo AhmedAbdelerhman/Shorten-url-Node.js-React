@@ -1,6 +1,5 @@
 const generateToken = require("../config/generateToken");
 const User = require("../models/userModel");
-//const Movie = require("../models/movieModel");
 const bcrypt = require("bcrypt");
 
 //@description      register a new  user
@@ -69,17 +68,5 @@ exports.postLogin = async (req, res) => {
   }
 };
 
-
-//@description     get all registered user
-//@route           get /api/user/
-//@access          protected by token
-exports.getAllUsers = async (req, res) => {
-  const users = await User.find({})
-    .sort({ name: 1 })
-    .find({ id: { $ne: req.user._id } })
-    .select("-password");
-
-  res.send({ message: "all user sorted by name", users });
-};
 
 

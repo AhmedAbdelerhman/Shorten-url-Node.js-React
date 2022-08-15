@@ -10,7 +10,6 @@ module.exports = async (req, res, next) => {
   try {
     decodedToken = jwt.verify(token, process.env.jwtSecretKey);
     req.user = await User.findById(decodedToken.userId).select("-password");
-    console.log(req.user);
   } catch (error) {
     return res.status(401).json({ error: "un able to verify" });
   }
