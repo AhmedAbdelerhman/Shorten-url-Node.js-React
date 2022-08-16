@@ -33,7 +33,7 @@ exports.getLongUrl = async (req, res) => {
       return res.status(404).json({ message: " url Not found" });
     }
   } catch (error) {
-    console.error(error);
+    console.log(error);
     return res.status(500).json({ message: "Some error has occurred" + error });
   }
 };
@@ -51,6 +51,7 @@ exports.createUrl = async (req, res) => {
     iosPrimary,
     iosFallBack,
   } = req.body;
+  console.log(req.body)
 
 
   if (
