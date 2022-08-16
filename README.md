@@ -10,7 +10,7 @@ Imagine a App with download link when open from iOS it opens the page for the iO
   - use FrontEnd
 
   ## How to setup
-   - git clone https://github.com/AhmedAbdelerhman/StorexWeb-task
+   - git clone https://github.com/AhmedAbdelerhman/Shorten-url-Node.js-React
    - npm install
    - npm start || npm run dev
 
