@@ -21,6 +21,13 @@ const port = process.env.PORT || 8080;
 
 
 //urlRouter
+app.get("/api/user", (req,res)=>{
+
+  res.status(401).json({
+    message:" login or register required  "
+  })
+});
+
 app.use("/api/user", userRouter);
 app.use("/api/url", urlRouter);
 
