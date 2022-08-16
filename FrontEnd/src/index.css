@@ -1,0 +1,13 @@
+body{
+
+    margin: 0;
+    height: auto;
+text-transform: capitalize !important;
+}
+
+.overFlow{
+  
+    overflow-y: auto
+
+}
+

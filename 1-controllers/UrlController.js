@@ -17,12 +17,12 @@ exports.getUserUrls = async (req, res) => {
   }
 };
 
-// @route     GET /:code
+// @route     GET /:slug
 // @desc      Redirect to long/original URL
 
 exports.getLongUrl = async (req, res) => {
   try {
-    const url = await Url.findOne({ slug: req.params.code });
+    const url = await Url.findOne({ slug: req.params.slug });
 
     if (url) {
       res.status(201).json({
