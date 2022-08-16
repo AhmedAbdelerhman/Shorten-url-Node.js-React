@@ -20,6 +20,7 @@ Imagine a App with download link when open from iOS it opens the page for the iO
     - login and register
     - detecte the user platform
   ## dependencies 
+     -React (18)
      -bootstrap5
      -material-ui
      -redux
