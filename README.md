@@ -4,7 +4,7 @@
 Imagine a App with download link when open from iOS it opens the page for the iOS app if from Android it opens the Android app download page
 ## Live Demo
  ##### backend :https://ahmed-shorten-api.herokuapp.com/
- ##### frontend:https://ahmed-shorten-url.web.app/main
+ ##### frontend:https://ahmed-shorten-url.web.app/
 ## testing
   - use postman
   - use FrontEnd
