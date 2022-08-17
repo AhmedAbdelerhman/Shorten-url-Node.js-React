@@ -44,7 +44,6 @@ export default function CardUrls(props) {
   const androidFallBackRef = useRef();
 
   const submitHandler = async (slug) => {
-    console.log(longUrlRef.current.value);
     const longUrl = longUrlRef.current.value;
     const androidPrimary = androidPrimaryRef.current.value;
     const androidFallBack = androidFallBackRef.current.value;
@@ -71,14 +70,12 @@ export default function CardUrls(props) {
           },
         }
       );
-      console.log(data);
       setResponsemessage(data);
       window.location.reload();
 
       return { userData: data };
     } catch (error) {
       setResponsemessage(error.response.data);
-      console.log(error.response.data);
       return { error: error.response.data };
     }
   };

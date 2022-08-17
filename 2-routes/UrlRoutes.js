@@ -5,7 +5,6 @@ const UrlRouter = require("../1-controllers/UrlController");
 const isAuth = require("../isAuth/isAuth");
 
 const router = express.Router();
-
 router.get("/", isAuth, UrlRouter.getUserUrls);
 router.get("/:slug",  UrlRouter.getLongUrl);
 

@@ -14,7 +14,8 @@ module.exports = async (req, res, next) => {
     return res.status(401).json({ error: "un able to verify" });
   }
   if (!decodedToken) {
-    return res.status(401).json({ error: "authorization error" });
+    return res.status(401).json({ status: "failed",
+    message: "auth failed, failed to login user" });
   }
 
   next();
