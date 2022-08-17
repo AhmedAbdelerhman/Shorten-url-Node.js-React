@@ -1,4 +1,5 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
+import { useHistory, } from "react-router-dom";
 import AllUrlCards from "../components/AllUrlCards";
 import UrlsDialog from "../components/UrlsDialog";
 
@@ -10,6 +11,15 @@ const CardUrl = (props) => {
     right: "25%",
     top: "2%",
   };
+  const history = useHistory();
+  useEffect(() => {
+    const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+    if (!(userInfo?.userData.token) ) 
+ {   console.log("hi")
+  
+  
+  history.push("/login");}
+  }, [history]);
   const showDialogHandler = () => {
     setShowDialog((showDialog) => (showDialog = !showDialog));
   };
@@ -28,7 +38,7 @@ const CardUrl = (props) => {
         onClick={showDialogHandler}
       >
         <span className="btn-label">
-          <i className="bi bi-plus-circle"></i> add url
+          <i className="bi bi-plus-circle"></i> Add Shorten Link 
         </span>
       </button>
     </Fragment>

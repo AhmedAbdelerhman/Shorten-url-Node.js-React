@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useRef, useState } from "react";
-import httpPost from "../Functions/httpPostForm";
+import httpPost from "../helpers/httpPostForm";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 
 import Button from "@mui/material/Button";
@@ -25,7 +25,7 @@ const LogIn = (props) => {
 
   useEffect(() => {
     const userInfo = JSON.parse(localStorage.getItem("userInfo")) ;
-    if (userInfo?.userData.token) history.push("/main");
+    if (userInfo?.userData.token) history.push("/");
   }, [history]);
 
   const loginHandler = async (event) => {
@@ -37,15 +37,13 @@ const LogIn = (props) => {
       const  data  = await httpPost(payLoad, "login");
       if (data.userData) {
         localStorage.setItem("userInfo", JSON.stringify(data));
-        history.push("/chat");
+        history.push("/");
       } else {
 
         setResponseMessage(data.error.message)
-        console.log(data.error);
   
       }
     } catch (error) {
-      console.log(error);
     }
   };
 
@@ -116,7 +114,7 @@ const LogIn = (props) => {
               <Grid container>
               
                 <Grid item>
-                  <NavLink to="/home/signup" variant="body2">
+                  <NavLink to="/signup" variant="body2">
                     {"Don't have an account? Sign Up"}
                   </NavLink>
                 </Grid>

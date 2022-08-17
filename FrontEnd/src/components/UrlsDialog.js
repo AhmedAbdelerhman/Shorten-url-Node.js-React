@@ -34,7 +34,6 @@ export default function UrlsDialog(props) {
   const androidFallBackRef = useRef();
 
   const submitHandler = async () => {
-  console.log( longUrlRef.current.value)
     const longUrl = longUrlRef.current.value;
     const slugKey = slugRef.current.value;
     const androidPrimary = androidPrimaryRef.current.value;
@@ -63,7 +62,6 @@ export default function UrlsDialog(props) {
           Authorization: `Bearer ${user.userData.token}`,
         },
       });
-      console.log(data)
       setResponsemessage(data)
       closeDialoge()
       window.location.reload()
@@ -74,7 +72,6 @@ export default function UrlsDialog(props) {
       return {userData:data};
     } catch (error) {
       setResponsemessage(error.response.data)
-      console.log(error.response.data)
       return {error:error.response.data}
           
     }

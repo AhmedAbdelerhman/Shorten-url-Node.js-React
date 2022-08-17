@@ -17,13 +17,11 @@ const  GetLongUrl =(props) =>{
             Authorization: `Bearer ${user.userData.token}`,
         },
     };
-    console.log( md.os() );
     useEffect(() => {
         const getUrls = async () => {
           const response = await fetch(`https://ahmed-shorten-api.herokuapp.com/api/url/${props.match.params.id}`, config);
           try {
             const url = await response.json();
-            console.log(url);
             if( md.os()==="iOS")
             window.location.href = url.originUrl.ios.primary;
             else if(md.os()==="AndroidOS")
@@ -33,10 +31,10 @@ const  GetLongUrl =(props) =>{
 
 
 
-            setMessage("the url not found")
           } catch (error) {
-
-
+            
+            setMessage("the url not found")
+           
         }
         };
     

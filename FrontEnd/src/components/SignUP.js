@@ -19,7 +19,7 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { CircularProgress, styled } from "@mui/material";
 import { NavLink } from "react-router-dom";
-import httpPost from "../Functions/httpPostForm";
+import httpPost from "../helpers/httpPostForm";
 
 const SignUP = (props) => {
   const history = useHistory();
@@ -49,7 +49,6 @@ const SignUP = (props) => {
         .then((res) => res.json())
         .then((data) => {
           setPic(data.url.toString());
-          console.log(data.url.toString());
           setUploadPicture(false);
         })
         .catch((err) => {
@@ -68,7 +67,6 @@ const SignUP = (props) => {
     const password = passwordSignUp.current.value;
     const name = nameSignup.current.value;
     let payLoad = { name, email, password, pic };
-    console.log();
     if (
       email.trim().length <= 0 ||
       password.trim().length <= 0 ||
@@ -86,7 +84,7 @@ const SignUP = (props) => {
     const data = await httpPost(payLoad, "signup");
     if (data.userData) {
       localStorage.setItem("userInfo", JSON.stringify(data));
-      history.push("/main")
+      history.push("/")
     } else {
       console.log(data.error);
     
@@ -133,7 +131,7 @@ const SignUP = (props) => {
               id="text"
               label="Your Name"
               name="text"
-              autoComplete="email"
+              autoComplete="name"
               autoFocus
             />
 
@@ -145,7 +143,7 @@ const SignUP = (props) => {
               type="email"
               id="email"
               label="Email Address"
-              name="name"
+              name="email"
               autoComplete="name"
             />
 
@@ -165,7 +163,6 @@ const SignUP = (props) => {
                 title: "8 characters minimum",
               }}
               onInvalid={() => {
-                console.log("hi");
               }}
               autoComplete="current-password"
             />
@@ -194,7 +191,7 @@ const SignUP = (props) => {
         
               </Grid>
               <Grid>
-                <NavLink color={"text.primary"} to="/home/login">
+                <NavLink color={"text.primary"} to="/login">
                   Already have an account? Log In
                 </NavLink>
               </Grid>

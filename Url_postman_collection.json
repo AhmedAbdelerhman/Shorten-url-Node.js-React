@@ -1,0 +1,208 @@
+{
+	"info": {
+		"_postman_id": "ea5d07d3-b1bb-4cbe-aeff-b60ba3e0a1c2",
+		"name": "Url",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "userlogin",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{     \"name\" :\"ahmed\",\r\n    \"email\":\"ahmed@gmail.com\",\r\n    \"password\":\"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/user/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n       \"email\":\"ahmed@gmail.com\",\r\n    \"password\":\"123456789\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "shortUrl",
+			"item": [
+				{
+					"name": "postUrl",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmZiYjliYzI1MDkwMDg1N2QyZWE2MTMiLCJpYXQiOjE2NjA3MjM2NzEsImV4cCI6MTY2MDgxMDA3MX0.I7alReGLJF8eUImB7WmlK26ZMYdRq5kqVadj4GOVZH4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"longUrl\": \"https://www.javacodegeeks.com/url-shortener-in-nodejs.html\",\r\n    \"slugKey\": \"g\",\r\n    \"androidPrimary\": \"https://www.javacodegeeks.com/url-shortener-in-nodejs.html\",\r\n    \"androidFallBack\": \"https://www.javacodegeeks.com/url-shortener-in-nodejs.html\",\r\n    \"iosPrimary\":\"https://www.javacodegeeks.com/url-shortener-in-nodejs.html\",\r\n    \"iosFallBack\":\"https://www.javacodegeeks.com/url-shortener-in-nodejs.htmlk\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/shortlinks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shortlinks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUrls created by login user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmZiYjliYzI1MDkwMDg1N2QyZWE2MTMiLCJpYXQiOjE2NjA3MjM2NzEsImV4cCI6MTY2MDgxMDA3MX0.I7alReGLJF8eUImB7WmlK26ZMYdRq5kqVadj4GOVZH4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/shortlinks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shortlinks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "original url",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/shortlinks/a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shortlinks",
+								"a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmZiYjliYzI1MDkwMDg1N2QyZWE2MTMiLCJpYXQiOjE2NjA3MjM2NzEsImV4cCI6MTY2MDgxMDA3MX0.I7alReGLJF8eUImB7WmlK26ZMYdRq5kqVadj4GOVZH4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"longUrl\": \"https://www.javacodegeeks.com/url-shortener-in-nodejs.html\",\r\n    \"androidPrimary\": \"https://www.android.com/\",\r\n    \"androidFallBack\": \"https://www.google.com/android/beta\",\r\n    \"iosPrimary\":\"https://www.apple.com/eg-ar/ios/ios-15/\",\r\n    \"iosFallBack\":\"https://www.google.com.eg/webhp?tab=rw1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/shortlinks/d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shortlinks",
+								"d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

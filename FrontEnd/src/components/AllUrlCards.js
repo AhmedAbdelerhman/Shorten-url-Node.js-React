@@ -21,7 +21,6 @@ const AllUrlCards = (props) => {
       try {
         const urls = await response.json();
         setUserUrls(urls);
-        console.log(urls);
       } catch (error) {}
     };
 

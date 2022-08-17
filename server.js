@@ -22,7 +22,7 @@ const port = process.env.PORT || 8080;
 
 //urlRouter
 app.use("/api/user", userRouter);
-app.use("/api/url", urlRouter);
+app.use("/shortlinks", urlRouter);
 
 
 app.use("/", error4040);

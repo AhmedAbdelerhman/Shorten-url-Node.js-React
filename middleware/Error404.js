@@ -1,7 +1,8 @@
 const error4040 =(req, res) =>{
 
 
-    res.status(404).json({message:"url not found"})
+    res.status(404).json({  status: "failed",
+    message: "not found"})
 }
 
 
