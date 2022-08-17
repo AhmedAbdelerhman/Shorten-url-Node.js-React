@@ -21,7 +21,6 @@ exports.getUserUrls = async (req, res) => {
 // @desc      Redirect to long/original URL
 
 exports.getLongUrl = async (req, res) => {
-  console.log("hidd");
   try {
     const url = await Url.findOne({ slug: req.params.slug });
 
@@ -46,13 +45,12 @@ exports.getLongUrl = async (req, res) => {
 exports.createUrl = async (req, res) => {
   let {
     longUrl,
-    slugKey,
+    slug,
     androidPrimary,
     androidFallBack,
     iosPrimary,
     iosFallBack,
   } = req.body;
-  console.log(req.body);
 
   if (
     !validUrl.isUri(longUrl) ||
@@ -66,17 +64,17 @@ exports.createUrl = async (req, res) => {
       .json({status: "failed", message: "please insert all links a valid Urls" });
   }
 
-  let slug = await Url.findOne({ slug: slugKey });
+  let slugKey = await Url.findOne({ slug: slug });
 
-  if (slug) {
+  if (slugKey) {
     return res.status(400).json({ status: "failed",message: "please select a anther  slug" });
   }
   try {
-    if (!slugKey.trim().length) {
-      slugKey = shortId.generate();
+    if (!(slug?.trim().length)) {
+      slug = shortId.generate();
     }
     const shortUrlResponse = await Url.create({
-      slug: slugKey,
+      slug: slug,
       ios: {
         primary: iosPrimary,
         fallback: iosFallBack,
@@ -109,7 +107,7 @@ exports.createUrl = async (req, res) => {
 //@route           put /shortlinks/:id
 //@access           protected by token
 exports.updateUrl = async (req, res) => {
-  const slugId = req.params.slug.trim();
+  const slugId = req.params.slug?.trim();
   let {
     longUrl,
     androidPrimary,
