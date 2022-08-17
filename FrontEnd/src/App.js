@@ -20,7 +20,7 @@ function App() {
   useEffect(() => {
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
     if (!(userInfo?.userData.token) ) 
- {   console.log("hi")
+ { 
   
   
   history.push("/login");}
