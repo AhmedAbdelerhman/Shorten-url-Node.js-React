@@ -19,7 +19,7 @@ const  GetLongUrl =(props) =>{
     };
     useEffect(() => {
         const getUrls = async () => {
-          const response = await fetch(`https://ahmed-shorten-api.herokuapp.com/api/url/${props.match.params.id}`, config);
+          const response = await fetch(`https://ahmed-shorten-api.herokuapp.com/shortlinks/${props.match.params.id}`, config);
           try {
             const url = await response.json();
             if( md.os()==="iOS")

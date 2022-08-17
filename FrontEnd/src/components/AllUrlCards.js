@@ -17,7 +17,7 @@ const AllUrlCards = (props) => {
 
   useEffect(() => {
     const getUrls = async () => {
-      const response = await fetch(`https://ahmed-shorten-api.herokuapp.com/api/url`, config);
+      const response = await fetch(`https://ahmed-shorten-api.herokuapp.com/shortlinks`, config);
       try {
         const urls = await response.json();
         setUserUrls(urls);

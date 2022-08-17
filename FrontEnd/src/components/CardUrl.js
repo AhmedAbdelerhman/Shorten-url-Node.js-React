@@ -55,7 +55,7 @@ export default function CardUrls(props) {
 
     try {
       const { data } = await axios.put(
-        `https://ahmed-shorten-api.herokuapp.com/api/url/${slug}`,
+        `https://ahmed-shorten-api.herokuapp.com/shortlinks/${slug}`,
         {
           longUrl,
           androidPrimary,

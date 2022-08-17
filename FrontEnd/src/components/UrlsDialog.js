@@ -46,7 +46,7 @@ export default function UrlsDialog(props) {
  
 
     try {
-      const {data} = await axios.post(`https://ahmed-shorten-api.herokuapp.com/api/url`, 
+      const {data} = await axios.post(`https://ahmed-shorten-api.herokuapp.com/shortlinks`, 
        {
 
         longUrl,
